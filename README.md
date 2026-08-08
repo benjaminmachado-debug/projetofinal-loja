@@ -2,4 +2,4 @@ Projeto Integrador da disciplina de Programação Orientada a Objetos (POO), em 
 
 Orientador(a): Ester Roja
 
-Aluno: Benjamin W
+Aluno: Benjamin Warley
