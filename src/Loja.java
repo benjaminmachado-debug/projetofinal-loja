@@ -71,7 +71,7 @@ public class Loja {
         } else {
             for (int i = 0; i < this.funcionarios.size(); i++) {
                 Funcionario funcionario = this.funcionarios.get(i);
-                funcionario.mostrarDados();
+                    funcionario.mostrarDados();
                 System.out.println("------------------------------");
             }
         }
