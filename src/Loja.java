@@ -5,12 +5,10 @@ import java.util.ArrayList;
 public class Loja {
 
     private ArrayList<Funcionario> funcionarios;
-    private ArrayList<Caixa> caixas;
     private ArrayList<Pagamento> pagamentos;
 
     public Loja() {
         this.funcionarios = new ArrayList<Funcionario>();
-        this.caixas = new ArrayList<Caixa>();
         this.pagamentos = new ArrayList<Pagamento>();
     }
 
@@ -22,34 +20,12 @@ public class Loja {
         this.funcionarios = funcionarios;
     }
 
-    public ArrayList<Caixa> getCaixas() {
-        return caixas;
-    }
-
-    public void setCaixas(ArrayList<Caixa> caixas) {
-        this.caixas = caixas;
-    }
-
     public ArrayList<Pagamento> getPagamentos() {
         return pagamentos;
     }
 
     public void setPagamentos(ArrayList<Pagamento> pagamentos) {
         this.pagamentos = pagamentos;
-    }
-
-    public void cadastrarFuncionario(Funcionario funcionario) {
-        this.funcionarios.add(funcionario);
-        System.out.println("Funcionário cadastrado com sucesso!");
-    }
-
-    public void cadastrarCaixa(Caixa caixa) {
-        this.caixas.add(caixa);
-        System.out.println("Caixa cadastrado com sucesso!");
-    }
-
-    public void cadastrarPagamento(Pagamento pagamento) {
-        this.pagamentos.add(pagamento);
     }
 
     public Funcionario buscarFuncionarioPorId(int id) {
@@ -65,28 +41,31 @@ public class Loja {
         return encontrado;
     }
 
+    public void adicionarFuncionario(Funcionario funcionario) {
+        Funcionario existente = this.buscarFuncionarioPorId(funcionario.getId());
+
+        if (existente == null) {
+            this.funcionarios.add(funcionario);
+            System.out.println("Funcionário cadastrado com sucesso!");
+        } else {
+            System.out.println("Já existe um funcionário cadastrado com esse ID. Cadastro não realizado.");
+        }
+    }
+
     public void listarFuncionarios() {
         if (this.funcionarios.size() == 0) {
             System.out.println("Nenhum funcionário cadastrado.");
         } else {
             for (int i = 0; i < this.funcionarios.size(); i++) {
                 Funcionario funcionario = this.funcionarios.get(i);
-                    funcionario.mostrarDados();
+                funcionario.mostrarDados();
                 System.out.println("------------------------------");
             }
         }
     }
 
-    public void listarCaixas() {
-        if (this.caixas.size() == 0) {
-            System.out.println("Nenhum caixa cadastrado.");
-        } else {
-            for (int i = 0; i < this.caixas.size(); i++) {
-                Caixa caixa = this.caixas.get(i);
-                caixa.mostrarDados();
-                System.out.println("------------------------------");
-            }
-        }
+    public void cadastrarPagamento(Pagamento pagamento) {
+        this.pagamentos.add(pagamento);
     }
 
     public void listarPagamentos() {

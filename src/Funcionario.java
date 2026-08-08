@@ -1,6 +1,6 @@
 package src;
 
-public class Funcionario {
+public abstract class Funcionario {
 
     private int id;
     private String nome;
@@ -8,11 +8,11 @@ public class Funcionario {
     private double salario;
     private String cargo;
 
-    public Funcionario(int id, String nome, String cpf, double salario, String cargo) {
+    protected Funcionario(int id, String nome, String cpf, double salario, String cargo) {
         this.id = id;
-            this.nome = nome;
+        this.nome = nome;
         this.cpf = cpf;
-            this.salario = salario;
+        this.salario = salario;
         this.cargo = cargo;
     }
 
@@ -58,9 +58,9 @@ public class Funcionario {
 
     public void mostrarDados() {
         System.out.println("ID: " + this.id);
-            System.out.println("Nome: " + this.nome);
+        System.out.println("Nome: " + this.nome);
         System.out.println("CPF: " + this.cpf);
-            System.out.println("Salário: R$" + this.salario);
+        System.out.println("Salário: R$" + this.salario);
         System.out.println("Cargo: " + this.cargo);
     }
 }
