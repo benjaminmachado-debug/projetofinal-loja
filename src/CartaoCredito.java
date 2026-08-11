@@ -7,14 +7,14 @@ public class CartaoCredito extends Cartao {
     // construtor para pagamento a vista
     public CartaoCredito(int numeroPagamento, double valor, String numeroCartao, String nomeTitular, String bandeira, String cvv, double limiteDisponivel) {
         super(numeroPagamento, valor, numeroCartao, nomeTitular, bandeira, cvv);
-            this.limiteDisponivel = limiteDisponivel;
+        this.limiteDisponivel = limiteDisponivel;
         this.quantidadeParcelas = 1;
     }
 
     // construtor para pagamento parcelado
     public CartaoCredito(int numeroPagamento, double valor, String numeroCartao, String nomeTitular, String bandeira, String cvv, double limiteDisponivel, int quantidadeParcelas) {
         super(numeroPagamento, valor, numeroCartao, nomeTitular, bandeira, cvv);
-            this.limiteDisponivel = limiteDisponivel;
+        this.limiteDisponivel = limiteDisponivel;
         this.quantidadeParcelas = quantidadeParcelas;
     }
 
@@ -60,7 +60,6 @@ public class CartaoCredito extends Cartao {
     }
 
     @Override
-
     public void mostrarPagamento() {
         super.mostrarPagamento();
         System.out.println("Limite restante: R$" + this.limiteDisponivel);

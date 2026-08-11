@@ -64,6 +64,17 @@ public class Loja {
         }
     }
 
+    // procura o funcionario pelo id e confere se a senha bate
+    public Funcionario autenticar(int id, String senha) {
+        Funcionario funcionario = this.buscarFuncionarioPorId(id);
+
+        if (funcionario != null && funcionario.getSenha().equals(senha)) {
+            return funcionario;
+        }
+
+        return null;
+    }
+
     public void cadastrarPagamento(Pagamento pagamento) {
         this.pagamentos.add(pagamento);
     }
@@ -79,4 +90,26 @@ public class Loja {
             }
         }
     }
-}
+
+    // mostra todas as vendas e o total das que foram aprovadas
+    public void gerarRelatorioVendas() {
+        if (this.pagamentos.size() == 0) {
+            System.out.println("Nenhuma venda registrada até o momento.");
+        } else {
+            double totalVendas = 0;
+
+            System.out.println("--- Relatório de Vendas ---");
+            for (int i = 0; i < this.pagamentos.size(); i++) {
+                Pagamento pagamento = this.pagamentos.get(i);
+                pagamento.mostrarPagamento();
+                System.out.println("------------------------------");
+
+                if (pagamento.getStatus().equals("APROVADO")) {
+                    totalVendas = totalVendas + pagamento.getValor();
+                }
+            }
+
+            System.out.println("Total de vendas aprovadas: R$" + totalVendas);
+        }
+    }
+}   

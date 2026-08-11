@@ -7,13 +7,15 @@ public abstract class Funcionario {
     private String cpf;
     private double salario;
     private String cargo;
+    private String senha;
 
-    protected Funcionario(int id, String nome, String cpf, double salario, String cargo) {
+    protected Funcionario(int id, String nome, String cpf, double salario, String cargo, String senha) {
         this.id = id;
-            this.nome = nome;
+        this.nome = nome;
         this.cpf = cpf;
-            this.salario = salario;
+        this.salario = salario;
         this.cargo = cargo;
+        this.senha = senha;
     }
 
     public int getId() {
@@ -56,11 +58,19 @@ public abstract class Funcionario {
         this.cargo = cargo;
     }
 
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
     public void mostrarDados() {
         System.out.println("ID: " + this.id);
-            System.out.println("Nome: " + this.nome);
+        System.out.println("Nome: " + this.nome);
         System.out.println("CPF: " + this.cpf);
-            System.out.println("Salário: R$" + this.salario);
+        System.out.println("Salário: R$" + this.salario);
         System.out.println("Cargo: " + this.cargo);
     }
 }
